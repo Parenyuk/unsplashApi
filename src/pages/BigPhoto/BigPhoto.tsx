@@ -1,17 +1,41 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppStateType, PhotoReducerType} from '../../redux/store';
+import { setPhotoThunk } from '../../redux/photoReducer';
 
-type PropsType = {
-    photoLink: string
-    authorName: string
-    photoName: string
-}
 
-export const BigPhoto = ({photoLink, authorName, photoName}: PropsType) => {
+
+
+
+export const BigPhoto = () => {
+
+
+    const dispatch = useDispatch();
+
+
+    const photoName = useSelector<AppStateType, string>(state => state.bigPhotoPage.photoName);
+    const author = useSelector<AppStateType, string>(state => state.bigPhotoPage.author);
+    const photoLink = useSelector<AppStateType, string>(state => state.bigPhotoPage.photoLink);
+
+
+
+    const getPhoto = () => {
+        debugger;
+        dispatch(setPhotoThunk());
+    }
+
+    // useEffect(
+    //     () => {
+    //         dispatch(setPhotoThunk())
+    //     },[])
+
+
     return (
         <div className='bigPhoto'>
+            <button onClick={getPhoto} >Get Random Photo</button>
 
             <div>
-                author:   <b>{authorName}</b>
+                author:   <b>{author}</b>
             </div>
             <div>
                 name: <b>{photoName}</b>

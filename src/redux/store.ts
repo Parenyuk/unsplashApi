@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
-import {listPhotoReducer} from './listPageReducer';
+import {photoReducer} from './photoReducer';
 
 
 
@@ -8,14 +8,16 @@ export type InferActionTypes<T> = T extends { [keys: string]: (...args: any[]) =
 
 
 const rootReducer = combineReducers(
-    { listPhotoPage: listPhotoReducer
+    {
+        bigPhotoPage: photoReducer
 
     }
-
 )
 export type RootReducerType = typeof rootReducer;
 
 export type AppStateType = ReturnType<RootReducerType>;
 
+export type PhotoReducerType = ReturnType<typeof photoReducer>
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));
