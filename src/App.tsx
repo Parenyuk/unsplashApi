@@ -6,6 +6,7 @@ import {Home} from './components/Home';
 import {Route, Switch, HashRouter} from 'react-router-dom';
 import {PhotoList} from './pages/PhotoList/PhotoList';
 import { BigPhoto } from './pages/BigPhoto/BigPhoto';
+import {SearchPhoto} from './pages/SearchPhoto/SearchPhoto';
 
 
 const App = () =>{
@@ -31,6 +32,9 @@ const App = () =>{
                     </Route>
                     <Route path={'/bigPhoto'}>
                         <BigPhoto />
+                    </Route>
+                    <Route path={'/searchphoto'} >
+                        <SearchPhoto/>
                     </Route>
                 </Switch>
                 </div>

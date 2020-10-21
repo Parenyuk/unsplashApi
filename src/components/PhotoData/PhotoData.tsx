@@ -1,30 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './PhotoData.scss'
-import {setPhotoListThunk, setPhotoThunk} from '../../redux/photoReducer';
-import {useDispatch, useSelector} from 'react-redux';
-import {AppStateType} from '../../redux/store';
 
+type PropsType = {
+    photoLink: string
+    author: string
+    photoName: string
+}
 
-export const PhotoData = () => {
-
-    const photoName = useSelector<AppStateType, string>(state => state.bigPhotoPage.photoName);
-    const author = useSelector<AppStateType, string>(state => state.bigPhotoPage.author);
-    const photoLink = useSelector<AppStateType, string>(state => state.bigPhotoPage.photoLink);
-
-    const dispatch = useDispatch();
-
-
-    const client_id = 'qfFiKdB-XkjSXyE2n3yyWvNpNWtsPbGfa6KVv7TEmvk';
-    const count = 6;
-
-    useEffect(
-        () => {
-            dispatch(setPhotoListThunk(client_id, count))
-        },[dispatch])
-    const getPhotos = () => {
-        debugger;
-        dispatch(setPhotoListThunk(client_id, count));
-    }
+export const PhotoData = ({photoLink, author, photoName}: PropsType) => {
 
 
     return (

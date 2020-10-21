@@ -8,6 +8,7 @@ export const NavMenu = () => {
                 <NavLink to={'/'}>Головна</NavLink>
                 <NavLink to={'/photolist'} >список фото</NavLink>
                 <NavLink to={'/bigPhoto'} >окреме фото</NavLink>
+            <NavLink to={'/searchphoto'}>пошук фото</NavLink>
         </div>
     )
 }

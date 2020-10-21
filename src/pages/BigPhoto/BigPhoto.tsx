@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppStateType, PhotoReducerType} from '../../redux/store';
+import {AppStateType} from '../../redux/store';
 import { setPhotoThunk } from '../../redux/photoReducer';
 
 
@@ -24,10 +24,7 @@ export const BigPhoto = () => {
         dispatch(setPhotoThunk());
     }
 
-    // useEffect(
-    //     () => {
-    //         dispatch(setPhotoThunk())
-    //     },[])
+
 
 
     return (

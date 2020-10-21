@@ -3,12 +3,14 @@ import {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import {unsplashPhotoApi} from '../api/api';
 
 const SET_PHOTO = 'PHOTO_REDUCER/SET-PHOTO';
-const SET_PHOTO_LIST = 'PHOTO_REDUCER/SET_PHOTO_LIST'
+const SET_PHOTO_LIST = 'PHOTO_REDUCER/SET_PHOTO_LIST';
+const SET_SEARCH_INPUT ='PHOTO_REDUCER/SET_SEARCH_INPUT'
 
 let initialState = {
     photoName: 'photo',
     author: 'Vasia',
-    photoLink: 'https://images.unsplash.com/photo-1551098891-7a1c852f6c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+    photoLink: 'https://images.unsplash.com/photo-1551098891-7a1c852f6c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+
 }
 
 type InitialStateType = typeof initialState;
@@ -43,6 +45,7 @@ const actions = {
     setPhotoList: (data: any) => {
         return ({type: SET_PHOTO_LIST, data } as const )
     },
+
 }
 
 
@@ -59,9 +62,10 @@ export const setPhotoThunk = ():ThunkType => async (dispatch: ThunkDispatch<AppS
 export const setPhotoListThunk = (client_id: string, count: number):ThunkType => async (dispatch: ThunkDispatch<AppStateType, unknown, ActionType>, getState: () => AppStateType ) => {
     try {
         const response = await unsplashPhotoApi.setPhotoDataList(client_id, count)
-        dispatch(actions.setPhoto(response.data))
+        dispatch(actions.setPhotoList(response.data))
     }
     catch (e) {
 
     }
 }
+
