@@ -6,12 +6,12 @@ import {PhotoType} from '../types';
 const SET_SEARCH_INPUT = 'SEARCH_PHOTO_REDUCER/SET_SEARCH_INPUT'
 
 const initialState = {
-    photoArray: [],
+    photoLinks: [],
     _id: ''
 }
 
 type InitialStateType = {
-    photoArray: Array<PhotoType>,
+    photoLinks: Array<string>,
     _id: string
 }
 
@@ -21,7 +21,7 @@ type InitialStateType = {
 export const searchPhotoReducer = (state: InitialStateType = initialState, action: ActionType) => {
     switch (action.type) {
         case SET_SEARCH_INPUT: {
-            return {...state, photoArray: action.data, _id: action.data.results.id }
+            return {...state, photoLinks: action.link, _id: action._id }
         }
         default:
             return state
@@ -32,8 +32,8 @@ type ActionType = InferActionTypes<typeof actions>;
 type ThunkType = ThunkAction<void, AppStateType, unknown, ActionType>;
 
 const actions = {
-    setSearchInput: (link: string, ) => {
-        return ({type: SET_SEARCH_INPUT, data } as const )
+    setSearchInput: (link: string, _id: string) => {
+        return ({type: SET_SEARCH_INPUT, link, _id } as const )
     }
 }
 

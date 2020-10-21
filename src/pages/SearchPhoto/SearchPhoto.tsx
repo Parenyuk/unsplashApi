@@ -13,7 +13,7 @@ export const SearchPhoto = () => {
 
     const dispatch = useDispatch();
 
-    const photoArray = useSelector<AppStateType, Array<PhotoType>>(state => state.searchPhotoPage.photoArray);
+    const photoArray = useSelector<AppStateType, string>(state => state.searchPhotoPage.photoLinks);
     const _id = useSelector<AppStateType, string>(state => state.searchPhotoPage._id);
 
     const client_id = 'qfFiKdB-XkjSXyE2n3yyWvNpNWtsPbGfa6KVv7TEmvk';
@@ -25,9 +25,9 @@ export const SearchPhoto = () => {
     debugger
 
 
-    const photo = photoArray.map((m: PhotoType) => {
+    const photo = photoArray.map((m: string) => {
         debugger
-        return <Photo /*key={m._id}*/ photoLink={m.results[0].urls.regular}/>
+        return <Photo /*key={m._id}*/ photoLink={m}/>
     })
 
 
