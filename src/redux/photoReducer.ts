@@ -16,7 +16,7 @@ type InitialStateType = typeof initialState;
 export const photoReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType  => {
     switch (action.type) {
         case SET_PHOTO: {
-            return {...state, photoName: action.data.alt_description, author: action.data.user.username, photoLink: action.data.urls.small }
+            return {...state, photoName: action.data.alt_description, author: action.data.user.username, photoLink: action.data.urls.regular }
         }
         default:
             return state
