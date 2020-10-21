@@ -24,10 +24,10 @@ export const BigPhoto = () => {
         dispatch(setPhotoThunk());
     }
 
-    useEffect(
-        () => {
-            dispatch(setPhotoThunk())
-        },[])
+    // useEffect(
+    //     () => {
+    //         dispatch(setPhotoThunk())
+    //     },[])
 
 
     return (

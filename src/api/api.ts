@@ -6,7 +6,9 @@ const instance = axios.create({
 
 export const unsplashPhotoApi = {
     setPhotoData (client_id: string) {
-        debugger
     return instance.get<any>(`photos/random?client_id=${client_id}`)
-}
+},
+    setPhotoDataList (client_id: string, count: number) {
+        return instance.get<any>(`photos/random?client_id=${client_id}&count=${count}`)
+    }
 }
