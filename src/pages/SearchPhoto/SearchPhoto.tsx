@@ -13,8 +13,8 @@ export const SearchPhoto = () => {
 
     const dispatch = useDispatch();
 
-    const photoArray = useSelector<AppStateType, string>(state => state.searchPhotoPage.photoLinks);
-    const _id = useSelector<AppStateType, string>(state => state.searchPhotoPage._id);
+    const photoArray = useSelector<AppStateType, Array<PhotoType>>(state => state.searchPhotoPage.photoArray);
+
 
     const client_id = 'qfFiKdB-XkjSXyE2n3yyWvNpNWtsPbGfa6KVv7TEmvk';
 
@@ -22,12 +22,10 @@ export const SearchPhoto = () => {
         dispatch(searchInputThunk(client_id, searchValue))
     }
 
-    debugger
 
-
-    const photo = photoArray.map((m: string) => {
+    const photo = photoArray.map((m: PhotoType) => {
         debugger
-        return <Photo /*key={m._id}*/ photoLink={m}/>
+        return <Photo key={m.results[0].id} photoLink={m.results[0].urls.regular}/>
     })
 
 
